@@ -21,11 +21,21 @@ void Customer::AddDetails(string N, int A, int I, int P, int T) {
 	TicketNumber = T;
 }
 
+
+int SearchTicket(Ticket ticket, string fn) {
+	if(fn == ticket.Destination)
+		return 1;
+	else
+		return 0;
+
+}
+
 void Customer::BookTicket(Ticket ticket) {
 	TicketNumber= ticket.TicketNumber;
 	cout<<"BOOKED(#"<<TicketNumber<<")"<<endl;
 
 }
+
 
 void Customer::PrintCustomer() {
 	cout<<"================CUSTOMER================"<<endl;

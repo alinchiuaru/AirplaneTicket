@@ -2,18 +2,25 @@
 #include <string>
 #include "Ticket.h"
 #include "Customer.h"
+#include "Flight.h"
 using namespace std;
 
 int main()
 {
 	Customer cust;
-	Ticket t(1447,"T1447-RO","Bucharest");
+	Flight fl(9977,30,"Timisoara","Bucharest");
+	Ticket t[100];
+
+	for(int i=1; i<=fl.Seats; i++)
+		t[i].create(fl,i);
 	
-	t.TicketPrint();
+	
+	
 	cout<<endl;
 	cust.AddDetails("Alin Chiuaru", 19, 79412, 724268845, 0);
 	
-	cust.BookTicket(t);
+
+	cust.BookTicket(t[5]);
 
 	cout<<endl;
 

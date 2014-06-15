@@ -1,11 +1,17 @@
+class Flight;
+
 class Ticket
 {
 public:
 	Ticket();
-	Ticket(int, std::string, std::string);
-
+	
+	void create(Flight, int);
+	void create(int);
+	
 	int TicketNumber;
-	std::string TicketName;
+	int FlightNumber;
+	std::string Location;
 	std::string Destination;
+	
 	void TicketPrint();
 };

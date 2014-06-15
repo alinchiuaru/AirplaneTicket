@@ -1,25 +1,36 @@
 #include <iostream>
 #include <string>
 #include "Ticket.h"
+#include "Flight.h"
 using namespace std;
 
 Ticket::Ticket() {
 	TicketNumber = 0000;
-	TicketName = "Default Ticket Name";
+	Location = "Default Location";
 	Destination = "Default Destination";
+	FlightNumber = 0000;
 }
 
-Ticket::Ticket(int n, string tn, string d) {
-	TicketNumber = n;
-	TicketName = tn;
-	Destination = d;
+void Ticket::create(int nr) {
+	TicketNumber = nr;
+	Location = "Default Location";
+	Destination = "Default Destination";
+	FlightNumber = 0000;
+}
+
+void Ticket::create(Flight f, int nr) {
+	TicketNumber = 1000+f.Seats - nr; //100 (000)
+	Location = f.Location;
+	Destination = f.Destination;
+	FlightNumber = f.FlightNumber;
 }
 
 
 void Ticket::TicketPrint() {
 	cout<<"===============TICKET==============="<<endl; 
+	cout<<"Ticket Number: #"<<TicketNumber<<endl;
+	cout<<"Flight Number: #"<<FlightNumber<<endl;
+	cout<<"Boarding Location: "<<Location<<endl;
 	cout<<"Destination: "<<Destination<<endl;
-	cout<<"Ticket Name: "<<TicketName<<endl;
-	cout<<"Ticket Number: "<<TicketNumber<<endl;
-	cout<<"===================================="<<endl; //36
+	cout<<"===================================="<<endl; 
 }

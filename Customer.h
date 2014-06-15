@@ -10,7 +10,12 @@ public:
 	int TicketNumber;
 	
 	Customer();
+	
 	void AddDetails(std::string, int, int, int, int);
-	void BookTicket(Ticket ticket);
+	
+	int SearchTicket(Ticket, std::string);
+	void BookTicket(Ticket);
+	void CancelTicket(int);
+
 	void PrintCustomer();
 };
