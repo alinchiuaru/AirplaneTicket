@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "Ticket.h"
 #include "Customer.h"
 #include "Flight.h"
@@ -7,22 +8,29 @@ using namespace std;
 
 int main()
 {
-	Customer cust;
-	Flight fl(9977,30,"Timisoara","Bucharest");
-	Ticket t[100];
-
-	for(int i=1; i<=fl.Seats; i++)
-		t[i].create(fl,i);
 	
+	int index = 1, flightNumber, seatsNumber;
+	string location, destination;
 	
-	
-	cout<<endl;
-	cust.AddDetails("Alin Chiuaru", 19, 79412, 724268845, 0);
+	Flight flights[100];
 	
 
-	cust.BookTicket(t[5]);
+//Read and insert the flights
+	ifstream read("flights.txt");
+	while(read >> flightNumber >> seatsNumber >> location >> destination)
+		{
+			flights[index].create(flightNumber, seatsNumber, location, destination);
+			index++;
+		}
+//End read flights
 
-	cout<<endl;
-
+	
+	for(int i = 1; i<index; i++)
+		{
+			flights[i].details();
+			cout<<endl;
+		}
+		
+	
 
 }
