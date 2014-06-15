@@ -1,21 +1,16 @@
-#include "Date.h"
-#include "Time.h"
-#include <string>
-using namespace std;
+class Ticket;
 
 class Customer
 {
 public:
-	
-	string CustomerId;
-	string Name;
-	string Address;
-	int PhoneNo;
+	std::string Name;
 	int Age;
-
-	void AddDetails();
-	void ModifyDetails();
-	Customer();
-	~Customer();
+	int ID;
+	int PhoneNumber;
+	int TicketNumber;
 	
+	Customer();
+	void AddDetails(std::string, int, int, int, int);
+	void BookTicket(Ticket ticket);
+	void PrintCustomer();
 };
