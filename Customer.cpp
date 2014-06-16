@@ -4,6 +4,8 @@
 #include "Ticket.h"
 using namespace std;
 
+
+
 Customer::Customer()
 {
 	Name = "Customer Name";
@@ -21,19 +23,17 @@ void Customer::AddDetails(string N, int A, int I, int P, int T) {
 	TicketNumber = T;
 }
 
-
-int SearchTicket(Ticket ticket, string fn) {
-	if(fn == ticket.Destination)
-		return 1;
-	else
-		return 0;
-
+void Customer::AddDetails(string N, int A, int I, int P) {
+	Name = N;
+	Age = A;
+	ID = I;
+	PhoneNumber = P;
 }
 
-void Customer::BookTicket(Ticket ticket) {
+void Customer::BookTicket(Ticket ticket, int seat) {
 	TicketNumber= ticket.TicketNumber;
+	ticket.SeatNumber = seat;
 	cout<<"BOOKED(#"<<TicketNumber<<")"<<endl;
-
 }
 
 

@@ -1,3 +1,4 @@
-9944 10 Timisoara Bucharest
+9944 10 Timisoara Bucuresti
 9889 24 Timisoara Budapesta
 8773 72 Budapesta Berlin
+1428 30 Berlin Bucuresti

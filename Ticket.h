@@ -10,6 +10,7 @@ public:
 	
 	int TicketNumber;
 	int FlightNumber;
+	int SeatNumber;
 	std::string Location;
 	std::string Destination;
 	

@@ -1,4 +1,5 @@
 class Ticket;
+class Flight;
 
 class Customer
 {
@@ -7,15 +8,13 @@ public:
 	int Age;
 	int ID;
 	int PhoneNumber;
+	
 	int TicketNumber;
 	
 	Customer();
-	
 	void AddDetails(std::string, int, int, int, int);
+	void AddDetails(std::string, int, int, int);
 	
-	int SearchTicket(Ticket, std::string);
-	void BookTicket(Ticket);
-	void CancelTicket(int);
-
+	void BookTicket(Ticket, int);
 	void PrintCustomer();
 };
