@@ -6,14 +6,11 @@
 
 using namespace std;
 
-Interface::Interface() {
-
-	
-}
+Interface::Interface() {}
 
 void Interface::addCustomer(Customer customer) {
 	string name;
-	int age,id,phoneNumber;
+	int age, id, phoneNumber;
 
 	cout<<"////////////////////////////"<<endl;
 	cout<<"//////////AIRPLANE//////////"<<endl;
@@ -29,12 +26,14 @@ void Interface::addCustomer(Customer customer) {
 	cout<<"4) Phone Number: "; cin>>phoneNumber;
 	cout<<endl;
 	cout<<"////////////////////////////"<<endl;
+	cout<<"////////////////////////////"<<endl;
 	customer.AddDetails(name,age,id,phoneNumber);
 	cout<<endl;
 }
 
 void Interface::searchFlight(Flight flight[100], int index) {
-	int i=1;
+	int foundFlight = 0;
+	int i = 1;
 	int option, flightN;
 	string loc, dest;
 
@@ -44,45 +43,55 @@ void Interface::searchFlight(Flight flight[100], int index) {
 	cout<<"3) Destination."<<endl;
 	cout<<"Option: "; cin>>option;
 
-	switch(option) {
-		
-			case 1:
-				cout<<"Enter flight number: "; cin>>flightN;
+	do { 
+		switch(option) {
+			
+				case 1:
+					cout<<"Enter flight number: "; cin>>flightN;
+					for(i=1;i<index;i++)
+					{
+						if(flight[i].FlightNumber == flightN)
+							{
+								flight[i].details();
+								foundFlight = 1;
+							}
+					}		
+						if(foundFlight==0)
+							cout<<"FLIGHT NOT FOUND!"<<endl;
+					
+				break;
+			
+			case 2:
+				cout<<"Enter boarding location: "; 
+				cin>>loc;
+				for(i=1;i<index;i++)
+					{
+					if(flight[i].Location == loc)
+						{
+							flight[i].details();
+							foundFlight = 1;
+						}
+					}
+					if(foundFlight==0)
+						cout<<"FLIGHT NOT FOUND!"<<endl;
+			break;
+
+			case 3:
+				cout<<"Enter destination: "; 
+				cin>>dest;
 				for(i=1;i<index;i++)
 				{
-					if(flight[i].FlightNumber == flightN)
-						flight[i].details();
-							
-					else if(i==index-1)
+					if(flight[i].Destination == dest)
+						{
+							flight[i].details();
+							foundFlight = 1;
+						}
+				}
+					if(foundFlight==0)
 						cout<<"FLIGHT NOT FOUND!"<<endl;
-				}
 			break;
-		
-		case 2:
-			cout<<"Enter boarding location: "; 
-			cin>>loc;
-			for(i=1;i<index;i++)
-				{
-				if(flight[i].Location == loc)
-					flight[i].details();
-				
-				else if(i==index-1)
-					cout<<"FLIGHT NOT FOUND!"<<endl;
-				}
-		break;
-
-		case 3:
-			cout<<"Enter destination: "; 
-			cin>>dest;
-			for(i=1;i<index;i++)
-			{
-				if(flight[i].Destination == dest)
-					flight[i].details();
-				else if(i==index-1)
-					cout<<"FLIGHT NOT FOUND!"<<endl;
-			}
-		break;
-	}
+		}
+	} while(foundFlight==0);
 }
 
 int Interface::selectFlight(Flight flight[100], int index, int fNumber) {

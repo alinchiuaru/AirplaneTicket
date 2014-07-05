@@ -30,6 +30,10 @@ int main()
 		}
 	//End read flights
 
+	//ADD CUSTOMER
+	gui.addCustomer(customer);
+	
+
 
 	gui.searchFlight(flights, index);
 	cout<<endl;
